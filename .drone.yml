@@ -24,3 +24,10 @@ steps:
       from_secret: docker_password
     repo: hotio/ombi
     auto_tag: true
+
+- name: microbadger
+  image: plugins/webhook
+  pull: always
+  settings:
+    urls:
+      - https://hooks.microbadger.com/images/hotio/ombi/W9dO9pM-G_CmR-I6-v4GBqZyu6w=
