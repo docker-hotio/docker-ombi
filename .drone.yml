@@ -24,6 +24,7 @@ steps:
       from_secret: docker_password
     repo: hotio/ombi
     auto_tag: true
+    cache_from: "hotio/ombi"
 
 - name: microbadger
   image: plugins/webhook
