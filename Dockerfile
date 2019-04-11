@@ -12,3 +12,4 @@ RUN curl -fsSL "https://github.com/tidusjar/Ombi/releases/download/v3.0.4256/lin
     chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /
+
