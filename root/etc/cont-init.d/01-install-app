@@ -8,10 +8,10 @@ if [[ "${VERSION}" != "image" ]]; then
     else
         case "${VERSION}" in
             stable)
-                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases/latest" | jq -r .assets[].browser_download_url | grep -o ".*linux.tar.gz")
+                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases/latest" | jq -r .assets[].browser_download_url | grep -o ".*${ARCH}.tar.gz")
                 ;;
             unstable)
-                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases" | jq -r .[0].assets[].browser_download_url | grep -o ".*linux.tar.gz")
+                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases" | jq -r .[0].assets[].browser_download_url | grep -o ".*${ARCH}.tar.gz")
                 ;;
             *)
                 url="${VERSION}"
