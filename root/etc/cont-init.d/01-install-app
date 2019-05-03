@@ -11,7 +11,9 @@ if [[ "${VERSION}" != "image" ]]; then
                 url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases/latest" | jq -r .assets[].browser_download_url | grep -o ".*${ARCH}.tar.gz")
                 ;;
             unstable)
-                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases" | jq -r .[0].assets[].browser_download_url | grep -o ".*${ARCH}.tar.gz")
+                jobid="$(curl -fsSL https://ci.appveyor.com/api/projects/tidusjar/requestplex/branch/develop | jq '.build.jobs[0].jobId' | awk '{print $1}' | sed 's/\"//g')"
+                filename="$(curl -fsSL https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts | jq -r .[].fileName | grep -o ".*${ARCH}.tar.gz")"
+                url="https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts/${filename}"
                 ;;
             *)
                 url="${VERSION}"
