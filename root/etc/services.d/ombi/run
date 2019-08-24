@@ -3,4 +3,4 @@
 
 umask "${UMASK}"
 
-cd "${APP_DIR}" && exec s6-setuidgid hotio "${APP_DIR}/Ombi" --storage "${CONFIG_DIR}/app"
+cd "${APP_DIR}" && exec s6-setuidgid hotio "${APP_DIR}/Ombi" --storage "${CONFIG_DIR}/app" > /dev/null 2>&1
