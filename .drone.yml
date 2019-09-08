@@ -40,9 +40,8 @@ steps:
     repo: hotio/ombi
     cache_from: hotio/ombi
     build_args:
-      - GIT_COMMIT=${DRONE_COMMIT_SHA}
-      - GIT_TAG=${DRONE_TAG:-develop}
-      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - COMMIT=${DRONE_COMMIT_SHA}
+      - TAG=${DRONE_TAG:-develop}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
       - ARCH_OMBI=linux
     tags:
       - ${DRONE_TAG:-develop}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
@@ -75,9 +74,8 @@ steps:
     repo: hotio/ombi
     cache_from: hotio/ombi
     build_args:
-      - GIT_COMMIT=${DRONE_COMMIT_SHA}
-      - GIT_TAG=${DRONE_TAG:-develop}
-      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - COMMIT=${DRONE_COMMIT_SHA}
+      - TAG=${DRONE_TAG:-develop}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
       - ARCH_OMBI=linux-arm64
     tags:
       - ${DRONE_TAG:-develop}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
@@ -110,9 +108,8 @@ steps:
     repo: hotio/ombi
     cache_from: hotio/ombi
     build_args:
-      - GIT_COMMIT=${DRONE_COMMIT_SHA}
-      - GIT_TAG=${DRONE_TAG:-develop}
-      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - COMMIT=${DRONE_COMMIT_SHA}
+      - TAG=${DRONE_TAG:-develop}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
       - ARCH_OMBI=linux-arm
     tags:
       - ${DRONE_TAG:-develop}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
