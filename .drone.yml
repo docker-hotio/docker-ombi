@@ -38,8 +38,13 @@ steps:
       from_secret: docker_password
     repo: hotio/ombi
     cache_from: hotio/ombi:develop
+    build_args:
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+      - GIT_TAG=${DRONE_TAG}
+      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - ARCH_OMBI=linux
     tags:
-      - develop-linux-amd64
+      - develop-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
 
 depends_on:
   - checks
@@ -67,8 +72,13 @@ steps:
       from_secret: docker_password
     repo: hotio/ombi
     cache_from: hotio/ombi:develop
+    build_args:
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+      - GIT_TAG=${DRONE_TAG}
+      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - ARCH_OMBI=linux-arm64
     tags:
-      - develop-linux-arm64
+      - develop-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
 
 depends_on:
   - checks
@@ -96,8 +106,13 @@ steps:
       from_secret: docker_password
     repo: hotio/ombi
     cache_from: hotio/ombi:develop
+    build_args:
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+      - GIT_TAG=${DRONE_TAG}
+      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - ARCH_OMBI=linux-arm
     tags:
-      - develop-linux-arm
+      - develop-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
 
 depends_on:
   - checks
@@ -125,8 +140,13 @@ steps:
       from_secret: docker_password
     repo: hotio/ombi
     cache_from: hotio/ombi
+    build_args:
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+      - GIT_TAG=${DRONE_TAG}
+      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
+      - ARCH_OMBI=linux
     tags:
-      - ${DRONE_TAG}-linux-amd64
+      - ${DRONE_TAG}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
 
 depends_on:
   - checks
@@ -155,9 +175,12 @@ steps:
     repo: hotio/ombi
     cache_from: hotio/ombi
     build_args:
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+      - GIT_TAG=${DRONE_TAG}
+      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
       - ARCH_OMBI=linux-arm64
     tags:
-      - ${DRONE_TAG}-linux-arm64
+      - ${DRONE_TAG}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
 
 depends_on:
   - checks
@@ -186,9 +209,12 @@ steps:
     repo: hotio/ombi
     cache_from: hotio/ombi
     build_args:
+      - GIT_COMMIT=${DRONE_COMMIT_SHA}
+      - GIT_TAG=${DRONE_TAG}
+      - ARCH=${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
       - ARCH_OMBI=linux-arm
     tags:
-      - ${DRONE_TAG}-linux-arm
+      - ${DRONE_TAG}-${DRONE_STAGE_OS}-${DRONE_STAGE_ARCH}
 
 depends_on:
   - checks

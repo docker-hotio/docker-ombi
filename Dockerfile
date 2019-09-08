@@ -1,10 +1,14 @@
 FROM hotio/dotnetcore
 
 ARG DEBIAN_FRONTEND="noninteractive"
-ARG ARCH_OMBI="linux"
+ARG ARCH_OMBI
+ARG GIT_COMMIT
+ARG GIT_TAG
+ARG ARCH
 
+ENV GIT_COMMIT="${GIT_COMMIT}" GIT_TAG="${GIT_TAG}" ARCH="${ARCH}"
 ENV APP="Ombi" HOME="${CONFIG_DIR}"
-ENV ARCH="${ARCH_OMBI}"
+ENV ARCH_OMBI="${ARCH_OMBI}"
 EXPOSE 5000
 HEALTHCHECK --interval=60s CMD curl -fsSL http://localhost:5000 || exit 1
 

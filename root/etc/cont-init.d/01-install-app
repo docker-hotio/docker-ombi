@@ -8,11 +8,11 @@ if [[ "${VERSION}" != "image" ]]; then
     else
         case "${VERSION}" in
             stable)
-                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases/latest" | jq -r .assets[].browser_download_url | grep -o ".*${ARCH}.tar.gz")
+                url=$(curl -fsSL "https://api.github.com/repos/tidusjar/ombi/releases/latest" | jq -r .assets[].browser_download_url | grep -o ".*${ARCH_OMBI}.tar.gz")
                 ;;
             unstable)
                 jobid=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/branch/develop" | jq -r '.build.jobs[0].jobId')
-                filename=$(curl -fsSL "https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts" | jq -r '.[].fileName' | grep -o ".*${ARCH}.tar.gz")
+                filename=$(curl -fsSL "https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts" | jq -r '.[].fileName' | grep -o ".*${ARCH_OMBI}.tar.gz")
                 url="https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts/${filename}"
                 ;;
             *)
