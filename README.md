@@ -1,7 +1,8 @@
-# [docker-ombi](https://github.com/hotio/docker-ombi)
+# ombi
 
-![Docker Pulls](https://img.shields.io/docker/pulls/hotio/ombi?style=flat-square)
-![Drone (cloud)](https://img.shields.io/drone/build/hotio/docker-ombi?style=flat-square)
+[![GitHub](https://img.shields.io/badge/source-github-lightgrey?style=flat-square)](https://github.com/hotio/docker-ombi)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/ombi?style=flat-square)](https://hub.docker.com/r/hotio/ombi)
+[![Drone (cloud)](https://img.shields.io/drone/build/hotio/docker-ombi?style=flat-square)](https://cloud.drone.io/hotio/docker-ombi)
 
 ## Donations
 
