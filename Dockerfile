@@ -2,12 +2,8 @@ FROM hotio/dotnetcore
 
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG ARCH_OMBI
-ARG COMMIT
-ARG TAG
 
-ENV COMMIT="${COMMIT}" TAG="${TAG}"
-ENV APP="Ombi" HOME="${CONFIG_DIR}"
-ENV ARCH_OMBI="${ARCH_OMBI}"
+ENV ARCH_OMBI="${ARCH_OMBI}" HOME="${CONFIG_DIR}"
 EXPOSE 5000
 HEALTHCHECK --interval=60s CMD curl -fsSL http://localhost:5000 || exit 1
 
@@ -17,3 +13,9 @@ RUN curl -fsSL "https://github.com/tidusjar/Ombi/releases/download/v3.0.4680/${A
     chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /
+
+ARG COMMIT
+ARG TAG
+ARG APP
+
+ENV COMMIT="${COMMIT}" TAG="${TAG}" APP="${APP}"
