@@ -14,8 +14,5 @@ RUN curl -fsSL "https://github.com/tidusjar/Ombi/releases/download/v3.0.4680/${A
 
 COPY root/ /
 
-ARG COMMIT
 ARG TAG
-ARG APP
-
-ENV COMMIT="${COMMIT}" TAG="${TAG}" APP="${APP}"
+ENV TAG="${TAG}"
