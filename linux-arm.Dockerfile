@@ -5,7 +5,6 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 ENV HOME="${CONFIG_DIR}"
 EXPOSE 5000
-HEALTHCHECK --interval=60s CMD curl -fsSL http://localhost:5000 || exit 1
 
 COPY root/ /
 
