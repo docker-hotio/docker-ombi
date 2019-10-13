@@ -9,7 +9,7 @@ EXPOSE 5000
 COPY root/ /
 
 # https://github.com/tidusjar/Ombi/releases
-ENV OMBI_VERSION=3.0.4680
+ENV OMBI_VERSION=3.0.4817
 
 # install app
 RUN curl -fsSL "https://github.com/tidusjar/Ombi/releases/download/v${OMBI_VERSION}/linux-arm.tar.gz" | tar xzf - -C "${APP_DIR}" && \
