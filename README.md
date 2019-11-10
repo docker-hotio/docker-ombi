@@ -18,18 +18,16 @@ The environment variables below are all optional, the values you see are the def
 -e PUID=1000
 -e PGID=1000
 -e UMASK=022
--e VERSION=image
 ```
 
-Possible values for `VERSION`:
+## Tags
 
-```shell
-VERSION=image
-VERSION=stable
-VERSION=unstable
-VERSION=https://github.com/tidusjar/Ombi/releases/download/v3.0.3477/linux.tar.gz
-VERSION=file:///config/linux.tar.gz
-```
+| Tag       | Description    |
+| ----------|----------------|
+| latest    | Stable version |
+| master    | Stable version |
+
+You can also find tags that reference a commit or version number.
 
 ## Executing your own scripts
 
