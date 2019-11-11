@@ -9,7 +9,7 @@
 Just the basics to get the container running:
 
 ```shell
-docker run --rm --name ombi -p 5000:5000 -v /tmp/ombi:/config -e TZ=Etc/UTC hotio/ombi
+docker run --rm --name ombi -p 5000:5000 -v /tmp/ombi:/config -e TZ=Etc/UTC hotio/ombi:unstable
 ```
 
 The environment variables below are all optional, the values you see are the defaults.
