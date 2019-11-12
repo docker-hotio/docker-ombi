@@ -1,8 +1,7 @@
 # ombi
 
-[![GitHub](https://img.shields.io/badge/source-github-lightgrey?style=flat-square)](https://github.com/hotio/docker-ombi)
-[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/ombi?style=flat-square)](https://hub.docker.com/r/hotio/ombi)
-[![Drone (cloud)](https://img.shields.io/drone/build/hotio/docker-ombi?style=flat-square)](https://cloud.drone.io/hotio/docker-ombi)
+[![GitHub](https://img.shields.io/badge/source-github-lightgrey)](https://github.com/hotio/docker-ombi)
+[![Docker Pulls](https://img.shields.io/docker/pulls/hotio/ombi)](https://hub.docker.com/r/hotio/ombi)
 
 ## Starting the container
 
@@ -22,11 +21,11 @@ The environment variables below are all optional, the values you see are the def
 
 ## Tags
 
-| Tag      | Description                       |
-| ---------|-----------------------------------|
-| latest   | The same as `stable`              |
-| stable   | Stable version                    |
-| unstable | Unstable version, AppVeyor builds |
+| Tag      | Description                       | Build Status                                                                                                                                        |
+| ---------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| latest   | The same as `stable`              |                                                                                                                                                     |
+| stable   | Stable version                    | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-ombi/status.svg?ref=refs/heads/stable)](https://cloud.drone.io/hotio/docker-ombi)   |
+| unstable | Unstable version, AppVeyor builds | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-ombi/status.svg?ref=refs/heads/unstable)](https://cloud.drone.io/hotio/docker-ombi) |
 
 You can also find tags that reference a commit or version number.
 
