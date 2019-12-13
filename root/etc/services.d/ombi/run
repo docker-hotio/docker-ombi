@@ -3,4 +3,13 @@
 
 umask "${UMASK}"
 
-cd "${APP_DIR}" && exec s6-setuidgid hotio "${APP_DIR}/Ombi" --storage "${CONFIG_DIR}/app" > /dev/null 2>&1
+
+redirect_cmd() {
+    if [[ "${DEBUG}" == "yes" ]]; then
+        "$@"
+    else
+        "$@" > /dev/null 2>&1
+    fi
+}
+
+redirect_cmd cd "${APP_DIR}" && exec s6-setuidgid hotio "${APP_DIR}/Ombi" --storage "${CONFIG_DIR}/app"
