@@ -29,6 +29,7 @@ The environment variables below are all optional, the values you see are the def
 | latest   | The same as `stable`              |                                                                                                                                                     |                                                                                                      |
 | stable   | Stable version                    | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-ombi/status.svg?ref=refs/heads/stable)](https://cloud.drone.io/hotio/docker-ombi)   | ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-ombi/stable)   |
 | unstable | Unstable version, AppVeyor builds | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-ombi/status.svg?ref=refs/heads/unstable)](https://cloud.drone.io/hotio/docker-ombi) | ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-ombi/unstable) |
+| v4       | Very unstable version, V4 builds  | [![Build Status](https://cloud.drone.io/api/badges/hotio/docker-ombi/status.svg?ref=refs/heads/v4)](https://cloud.drone.io/hotio/docker-ombi)       | ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/hotio/docker-ombi/v4)       |
 
 You can also find tags that reference a commit or version number.
 
