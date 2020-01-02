@@ -45,7 +45,7 @@ elif [[ ${1} == "checkdigests" ]]; then
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm" and .platform.os == "linux").digest')   && sed -i "s#FROM .*\$#FROM ${image}@${digest}#g" ./linux-arm.Dockerfile   && echo "${digest}"
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm64" and .platform.os == "linux").digest') && sed -i "s#FROM .*\$#FROM ${image}@${digest}#g" ./linux-arm64.Dockerfile && echo "${digest}"
 else
-    version=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/history?recordsNumber=100" | jq -r '. | first(.builds[] | select(.status == "success") | select(.branch =="develop") | select(.pullRequestId == null)) | .version')
+    version=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/history?recordsNumber=100" | jq -r '. | first(.builds[] | select(.status == "success") | select(.branch =="feature/v4") | select(.pullRequestId == null)) | .version')
     [[ -z ${version} ]] && exit 1
     jobid=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/build/${version}" | jq -r '.build.jobs[0].jobId')
     [[ -z ${jobid} ]] && exit 1
