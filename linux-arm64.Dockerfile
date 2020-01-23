@@ -5,8 +5,8 @@ ARG DEBIAN_FRONTEND="noninteractive"
 ENV HOME="${CONFIG_DIR}"
 EXPOSE 5000
 
-ARG OMBI_VERSION=4.0.5008
-ARG OMBI_JOBID=b5t4dy3g4dmpi6oa
+ARG OMBI_VERSION=4.0.5009
+ARG OMBI_JOBID=94brl695y0wxj5r8
 
 # install app
 RUN curl -fsSL "https://ci.appveyor.com/api/buildjobs/${OMBI_JOBID}/artifacts/linux-arm64.tar.gz" | tar xzf - -C "${APP_DIR}" && \
