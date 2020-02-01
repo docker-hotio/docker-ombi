@@ -2,10 +2,8 @@ FROM hotio/dotnetcore@sha256:4645191ffe8a667b175c92738f81646ae8575ad2b6d61338825
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
-ENV HOME="${CONFIG_DIR}"
 EXPOSE 5000
 
-# https://github.com/tidusjar/Ombi/releases
 ARG OMBI_VERSION=3.0.4892
 
 # install app
