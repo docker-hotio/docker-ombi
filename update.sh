@@ -50,12 +50,9 @@ elif [[ ${1} == "checkdigests" ]]; then
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm" and .platform.os == "linux").digest')   && sed -i "s#FROM .*\$#FROM ${image}@${digest}#g" ./linux-arm.Dockerfile   && echo "${digest}"
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm64" and .platform.os == "linux").digest') && sed -i "s#FROM .*\$#FROM ${image}@${digest}#g" ./linux-arm64.Dockerfile && echo "${digest}"
 else
-    version=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/history?recordsNumber=100" | jq -r '. | first(.builds[] | select(.status == "success") | select(.branch =="feature/v4") | select(.pullRequestId == null)) | .version')
+    version=$(curl -fsSL "https://api.github.com/repos/tidusjar/Ombi.Releases/releases" | jq -r .[0].tag_name | sed s/v//g)
     [[ -z ${version} ]] && exit 1
-    jobid=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/build/${version}" | jq -r '.build.jobs[0].jobId')
-    [[ -z ${jobid} ]] && exit 1
     find . -type f -name '*.Dockerfile' -exec sed -i "s/ARG OMBI_VERSION=.*$/ARG OMBI_VERSION=${version}/g" {} \;
-    find . -type f -name '*.Dockerfile' -exec sed -i "s/ARG OMBI_JOBID=.*$/ARG OMBI_JOBID=${jobid}/g" {} \;
     sed -i "s/{TAG_VERSION=.*}$/{TAG_VERSION=${version}}/g" .drone.yml
     echo "##[set-output name=version;]${version}"
 fi
