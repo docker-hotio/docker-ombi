@@ -4,8 +4,8 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 EXPOSE 5000
 
-ARG OMBI_VERSION=3.0.5020
-ARG OMBI_JOBID=k7lnfqkyw4x1bpwo
+ARG OMBI_VERSION=3.0.5083
+ARG OMBI_JOBID=u13e8e6waqnamd5r
 
 # install app
 RUN curl -fsSL "https://ci.appveyor.com/api/buildjobs/${OMBI_JOBID}/artifacts/linux.tar.gz" | tar xzf - -C "${APP_DIR}" && \
