@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 EXPOSE 5000
 
-ARG OMBI_VERSION=4.0.268
+ARG OMBI_VERSION=4.0.270
 
 # install app
 RUN curl -fsSL "https://github.com/tidusjar/Ombi.Releases/releases/download/v${OMBI_VERSION}/linux-arm-${OMBI_VERSION##*.}.tar.gz" | tar xzf - -C "${APP_DIR}" && \
