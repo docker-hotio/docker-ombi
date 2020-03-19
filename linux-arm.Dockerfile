@@ -1,11 +1,11 @@
-FROM hotio/dotnetcore@sha256:528d4e17721bb71d0bbc380b5ca0146e646e1350f5d1407b73999d9ffb467786
+FROM hotio/dotnetcore@sha256:1a08edbf141bce113202a41c459490ce9d9d95be258284cecfd79229debe5f8f
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
 EXPOSE 5000
 
-ARG OMBI_VERSION=3.0.5007
-ARG OMBI_JOBID=7v59a0005tqxh8d1
+ARG OMBI_VERSION=3.0.5083
+ARG OMBI_JOBID=u13e8e6waqnamd5r
 
 # install app
 RUN curl -fsSL "https://ci.appveyor.com/api/buildjobs/${OMBI_JOBID}/artifacts/linux-arm.tar.gz" | tar xzf - -C "${APP_DIR}" && \
