@@ -12,4 +12,4 @@ redirect_cmd() {
 }
 
 # shellcheck disable=SC2086
-redirect_cmd cd "${APP_DIR}" && exec s6-setuidgid hotio "${APP_DIR}/Ombi" --storage "${CONFIG_DIR}/app" ${ARGS}
+redirect_cmd cd "${APP_DIR}" && exec s6-setuidgid hotio "${APP_DIR}/Ombi" --host http://0.0.0.0:5000 --storage "${CONFIG_DIR}/app" ${ARGS}
