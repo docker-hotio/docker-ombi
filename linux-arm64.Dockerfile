@@ -4,10 +4,10 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 EXPOSE 5000
 
-ARG OMBI_VERSION=4.0.261
+ARG OMBI_VERSION=4.0.271
 
 # install app
-RUN curl -fsSL "https://github.com/tidusjar/Ombi.Releases/releases/download/v${OMBI_VERSION}/linux-arm64-${OMBI_VERSION##*.}.tar.gz" | tar xzf - -C "${APP_DIR}" && \
+RUN zipfile="/tmp/ombi.zip" && curl -fsSL -o "${zipfile}" "https://github.com/tidusjar/Ombi.Releases/releases/download/v${OMBI_VERSION}/linux-arm64.zip" && unzip -q "${zipfile}" -d "${APP_DIR}" && rm "${zipfile}" && \
     chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /
