@@ -7,7 +7,7 @@ EXPOSE 5000
 ARG OMBI_VERSION=4.0.277
 
 # install app
-RUN zipfile="/tmp/ombi.zip" && curl -fsSL -o "${zipfile}" "https://github.com/tidusjar/Ombi.Releases/releases/download/v${OMBI_VERSION}/linux-arm.zip" && unzip -q "${zipfile}" -d "${APP_DIR}" && rm "${zipfile}" && \
+RUN zipfile="/tmp/ombi.zip" && curl -fsSL -o "${zipfile}" "https://github.com/tidusjar/Ombi.Releases/releases/download/v${OMBI_VERSION}/linux-arm.tar.gz" && unzip -q "${zipfile}" -d "${APP_DIR}" && rm "${zipfile}" && \
     chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /
