@@ -5,10 +5,8 @@ ARG DEBIAN_FRONTEND="noninteractive"
 EXPOSE 5000
 
 ARG OMBI_VERSION
-ARG OMBI_JOBID
 
-# install app
-RUN curl -fsSL "https://ci.appveyor.com/api/buildjobs/${OMBI_JOBID}/artifacts/linux-arm.tar.gz" | tar xzf - -C "${APP_DIR}" && \
+RUN curl -fsSL "https://github.com/tidusjar/Ombi.Releases/releases/download/v${OMBI_VERSION}/linux-arm.tar.gz" | tar xzf - -C "${APP_DIR}" && \
     chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /

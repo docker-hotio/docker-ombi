@@ -2,7 +2,7 @@
 
 if [[ ${1} == "screenshot" ]]; then
     SERVICE_IP="http://$(ping -c1 -4 service | sed -nE 's/^PING[^(]+\(([^)]+)\).*/\1/p'):5000"
-    NETWORK_IDLE="2"
+    NETWORK_IDLE="0"
     cd /usr/src/app && node <<EOF
 const puppeteer = require('puppeteer');
 
@@ -50,11 +50,8 @@ elif [[ ${1} == "checkdigests" ]]; then
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm" and .platform.os == "linux").digest')   && sed -i "s#FROM ${image}.*\$#FROM ${image}@${digest}#g" ./linux-arm.Dockerfile   && echo "${digest}"
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm64" and .platform.os == "linux").digest') && sed -i "s#FROM ${image}.*\$#FROM ${image}@${digest}#g" ./linux-arm64.Dockerfile && echo "${digest}"
 else
-    version=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/history?recordsNumber=100" | jq -r '. | first(.builds[] | select(.status == "success") | select(.branch =="develop") | select(.pullRequestId == null)) | .version')
+    version=$(curl -u "${GITHUB_ACTOR}:${GITHUB_TOKEN}" -fsSL "https://api.github.com/repos/tidusjar/Ombi.Releases/releases" | jq -r .[0].tag_name | sed s/v//g)
     [[ -z ${version} ]] && exit 1
-    jobid=$(curl -fsSL "https://ci.appveyor.com/api/projects/tidusjar/requestplex/build/${version}" | jq -r '.build.jobs[0].jobId')
-    [[ -z ${jobid} ]] && exit 1
     sed -i "s/{OMBI_VERSION=[^}]*}/{OMBI_VERSION=${version}}/g" .drone.yml
-    sed -i "s/{OMBI_JOBID=[^}]*}/{OMBI_JOBID=${jobid}}/g" .drone.yml
     echo "##[set-output name=version;]${version}"
 fi
