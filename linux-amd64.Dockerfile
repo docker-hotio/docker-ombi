@@ -1,8 +1,17 @@
-FROM hotio/dotnetcore@sha256:2cc4d58faad8e6230fdfceea898394a0703e14d9b2b5f3d3a47f2dd050acb1a2
+FROM hotio/base@sha256:20690b47bc26636539b1c55070546770502f3c7c8c39d3b9e6831e9154575999
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
 EXPOSE 5000
+
+# install packages
+RUN apt update && \
+    apt install -y --no-install-recommends --no-install-suggests \
+        libicu66 && \
+# clean up
+    apt autoremove -y && \
+    apt clean && \
+    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
 ARG OMBI_VERSION
 
