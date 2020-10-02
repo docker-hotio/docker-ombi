@@ -30,10 +30,10 @@ The environment variables below are all optional, the values you see are the def
 
 ## Tags
 
-| Tag              | Upstream    |
-| -----------------|-------------|
-| release (latest) | v3 releases |
-| testing          | v4 releases |
+| Tag                | Upstream    |
+| -------------------|-------------|
+| `release` (latest) | v3 releases |
+| `testing`          | v4 releases |
 
 You can also find tags that reference a commit or version number.
 
