@@ -1,5 +1,3 @@
-# ombi
-
 [<img src="https://hotio.dev/img/ombi.png" alt="logo" height="130" width="130">](https://github.com/tidusjar/Ombi)
 
 ![Base](https://img.shields.io/badge/base-ubuntu-orange)
