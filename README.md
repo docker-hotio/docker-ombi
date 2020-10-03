@@ -1,6 +1,6 @@
 # ombi
 
-![logo](https://hotio.dev/img/ombi.png)
+[<img src="https://hotio.dev/img/ombi.png" alt="logo" height="130" width="130">](https://github.com/tidusjar/Ombi)
 
 ![Base](https://img.shields.io/badge/base-ubuntu-orange)
 [![GitHub](https://img.shields.io/badge/source-github-lightgrey)](https://github.com/hotio/docker-ombi)
