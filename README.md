@@ -29,10 +29,10 @@ The [highlighted](https://hotio.dev/containers/ombi) variables are all optional,
 
 ## Tags
 
-| Tag                | Upstream    |
-| -------------------|-------------|
-| `release` (latest) | v3 releases |
-| `testing`          | v4 releases |
+| Tag                | Upstream    | Version |
+| -------------------|-------------|---------|
+| `release` (latest) | v3 releases | ![version](https://img.shields.io/badge/dynamic/json?color=f5f5f5&style=flat-square&label=&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdocker-hotio%2Fdocker-ombi%2Frelease%2FVERSION.json) |
+| `testing`          | v4 releases | ![version](https://img.shields.io/badge/dynamic/json?color=f5f5f5&style=flat-square&label=&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fdocker-hotio%2Fdocker-ombi%2Ftesting%2FVERSION.json) |
 
 You can also find tags that reference a commit or version number.
 
