@@ -25,6 +25,28 @@ docker run --rm \
     hotio/ombi
 ```
 
+Compose:
+
+```yaml
+version: "3.7"
+
+services:
+  ombi:
+    container_name: ombi
+    image: hotio/ombi
+    ports:
+      - "5000:5000"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=Etc/UTC
+      - ARGS
+      - DEBUG=no
+    volumes:
+      - /<host_folder_config>:/config
+```
+
 ## Tags
 
 | Tag                | Upstream    | Version | Build |
