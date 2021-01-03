@@ -11,7 +11,7 @@
 
 Just the basics to get the container running:
 
-```shell hl_lines="4 5 6 7 8 9"
+```shell
 docker run --rm \
     --name ombi \
     -p 5000:5000 \
@@ -24,8 +24,6 @@ docker run --rm \
     -v /<host_folder_config>:/config \
     hotio/ombi
 ```
-
-The [highlighted](https://hotio.dev/containers/ombi) variables are all optional, the values you see are the defaults.
 
 ## Tags
 
