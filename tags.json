@@ -3,9 +3,9 @@
     {
       "name": "release",
       "version": "3.0.5223",
-      "commit": "81a628b",
+      "commit": "2dc3ccc",
       "upstream": "v3",
-      "lastUpdated": "2021-02-23T19:33:10.478Z"
+      "lastUpdated": "2021-02-28T12:27:37.785Z"
     },
     {
       "name": "testing",
