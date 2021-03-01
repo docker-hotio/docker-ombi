@@ -16,6 +16,6 @@ RUN apt update && \
 ARG VERSION
 
 RUN curl -fsSL "https://github.com/Ombi-app/Ombi/releases/download/v${VERSION}/linux-x64.tar.gz" | tar xzf - -C "${APP_DIR}" && \
-    chmod -R u=rwX,go=rwX "${APP_DIR}"
+    chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /
