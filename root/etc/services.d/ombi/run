@@ -4,4 +4,5 @@
 umask "${UMASK}"
 
 cd "${APP_DIR}" || exit 1
-exec s6-setuidgid hotio "${APP_DIR}/Ombi" --host http://0.0.0.0:5000 --storage "${CONFIG_DIR}"
+# shellcheck disable=SC2086
+exec s6-setuidgid hotio "${APP_DIR}/Ombi" --host http://0.0.0.0:5000 --storage "${CONFIG_DIR}" ${ARGS}
